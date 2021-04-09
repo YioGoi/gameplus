@@ -1,0 +1,124 @@
+@import '../../styles/colors';
+
+.footer-container {
+    display       : flex;
+    flex-direction: column;
+
+    .sitemap {
+        display         : flex;
+        flex-direction  : row;
+        justify-content : space-between;
+        // height: 114px;
+        background-color: $white;
+        padding         : 24px 195px 24px 121px;
+
+        .left {
+            display  : flex;
+            flex-wrap: wrap;
+
+            .item {
+                flex: 1 0 30%;
+                font-family: greycliff-cf-light;
+                font-size: 16px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.38;
+                letter-spacing: normal;
+                color: $gray1;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: row;
+
+            .social {
+                display: flex;
+                flex-direction: column;
+
+                .title {
+
+                }
+
+                .icons {
+                    display: flex;
+                    flex-direction: row;
+                    padding-top: 16px;
+
+                    .twitter {
+                        padding-left: 16px;
+                    }
+
+                    .instagram {
+                        padding-left: 16px;
+                    }
+
+                    .youtube {
+                        padding-left: 16px;
+                    }
+                }
+            }
+
+            .language {
+                display: flex;
+                flex-direction: column;
+                padding-left: 99px;
+
+                .title {
+
+                }
+
+                .options {
+                    display: flex;
+                    flex-direction: row;
+                    padding-top: 16px;
+
+                    .arrow {
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        height          : 41px;
+        background-color: $gray1;
+        padding: 0 118px 0 121px;
+
+        .bottom-left {
+            display: flex;
+            flex-direction: row;
+            font-family   : greycliff-cf-bold;
+            font-size: 12px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.83;
+            letter-spacing: normal;
+            color: $white;
+
+            .others {
+                padding-left: 20px;
+            }
+
+        }
+
+        .bottom-right {
+            font-family: greycliff-cf-bold;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.83;
+            letter-spacing: normal;
+            text-align: right;
+            color: $white;
+        }
+    }
+}

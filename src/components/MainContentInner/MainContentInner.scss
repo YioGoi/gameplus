@@ -1,0 +1,13 @@
+@import '../../styles/colors';
+
+.main-content-inner {
+    display: flex;
+    flex-direction: row;
+    padding: 23px 0;
+
+    .filter {
+        width           : 386px;
+        background-color: $gray1;
+        height: fit-content;
+    }
+}

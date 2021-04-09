@@ -1,0 +1,90 @@
+@import '../../styles/colors';
+
+.main-content-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 51px;
+
+    .text {
+        display: flex;
+        align-items: center;
+        height: 56px;
+        font-family: greycliff-cf-bold;
+        font-size: 28px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: $white;
+    }
+
+    .sort {
+        .sort-button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: $gray1;
+            padding: 17px 18px 15px 16px;
+            cursor: pointer;
+
+            span {
+                font-family: greycliff-cf-light;
+                font-size: 20px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $gray3;
+            }
+
+            .arrow-container {
+                img.arrow-down {
+                    width: 16px;
+                    height: 20px;
+                    padding: 2px;
+                    object-fit: contain;
+                    margin-left: 16px;
+                }
+                img.arrow-up {
+                    width: 28px;
+                    height: 24px;
+                    object-fit: contain;
+                    margin-left: 8px;
+                }
+            }
+        }
+
+        .sort-dropdown {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $gray1;
+            padding: 16px 54px 16px 16px;
+            cursor: pointer;
+            margin-top: 1px;
+
+            span {
+                font-family: greycliff-cf-light;
+                font-size: 20px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $gray3;
+            }
+
+            .under {
+                padding-top: 16px;
+            }
+
+            .selected {
+                color: $white;
+            }
+        }
+    }
+}

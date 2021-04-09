@@ -1,0 +1,9 @@
+@import '../../styles/colors';
+
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+
+    background-color: $black;
+    padding: 0 120px;
+}

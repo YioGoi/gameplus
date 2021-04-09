@@ -1,0 +1,16 @@
+@font-face {
+  font-family: 'greycliff-cf-bold';
+  src: local('greycliff-cf-bold'), url(./fonts/greycliff.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'greycliff-cf-light';
+  src: local('greycliff-cf-light'), url(./fonts/greycliff-light.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  font-family: greycliff-cf-bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

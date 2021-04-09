@@ -1,0 +1,78 @@
+@import '../../styles/colors';
+
+.state-filter-container {
+    display       : flex;
+    flex-direction: column;
+
+    .state-filter-header {
+        display        : flex;
+        flex-direction : row;
+        justify-content: space-between;
+
+        .state-filter-title {
+            span {
+                font-family   : greycliff-cf-light;
+                font-size     : 24px;
+                font-weight   : 600;
+                font-stretch  : normal;
+                font-style    : normal;
+                line-height   : normal;
+                letter-spacing: normal;
+                color         : $gray3;
+            }
+        }
+    }
+
+    .state-filter-check-boxes {
+        display       : flex;
+        flex-direction: column;
+        padding-top   : 30px;
+
+        .first {
+            padding-top: unset !important;
+        }
+
+        .check-box {
+            display       : flex;
+            align-items   : center;
+            font-family   : greycliff-cf-light;
+            font-size     : 20px;
+            font-weight   : normal;
+            font-stretch  : normal;
+            font-style    : normal;
+            line-height   : 1.2;
+            letter-spacing: normal;
+            color         : $gray3;
+            padding-top   : 24px;
+
+            label {
+                padding-left: 20px;
+            }
+
+            input {
+                -webkit-appearance: none;
+                width             : 24px;
+                height            : 24px;
+                border            : solid 1px $gray3;
+                background-color  : $gray1;
+                outline           : unset;
+                display           : inline-block;
+                position          : relative;
+            }
+
+            input:checked {
+                background-color: $primary;
+                color           : $white;
+            }
+
+            input:checked:after {
+                position : absolute;
+                top      : -0.2em;
+                left     : .18em;
+                content  : '\2714';
+                font-size: 20px;
+                color    : $white;
+            }
+        }
+    }
+}

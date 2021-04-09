@@ -1,0 +1,82 @@
+@import '../../styles/colors';
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 80px;
+    background-color: $white;
+    padding: 14px 120px 0 120px;
+
+    .logo-container {
+
+    }
+
+    .right-pane {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .menu {
+            display: flex;
+            flex-direction: row;
+            .menu-item {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                padding-right: 40px;
+
+                .selected {
+                    color: $primary !important;
+                    margin-top: 30px;
+                }
+
+                .text {
+                    font-family: greycliff-cf-bold;
+                    font-size: 16px;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: 0.57px;
+                    color: $black;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+
+                .icon {
+                    
+                    padding-top: 10px;
+                }
+            }
+        }
+
+        .play-button-container {
+            padding-left: 21px;
+
+            .play-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 184px;
+                height: 40px;
+                font-family: greycliff-cf-bold;
+                font-size: 16px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: 0.57px;
+                text-align: center;
+                background-color: $primary;
+                color: $white;
+                cursor: pointer;
+            }
+        }
+    }
+}
