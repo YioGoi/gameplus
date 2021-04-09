@@ -1,0 +1,1 @@
+export const STORE_MAIN_DATA = 'STORE_MAIN_DATA'

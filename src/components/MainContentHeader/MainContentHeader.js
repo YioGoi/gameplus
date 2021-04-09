@@ -3,10 +3,18 @@ import React, { useState } from 'react'
 // Styles
 import './MainContentHeader.scss'
 
+// Redux
+import { useSelector } from 'react-redux'
+import store from '../../redux/store'
+import {
+    toogleSortState
+} from '../../redux'
+
 export default function MainContentHeader() {
+    // Global State
+    const sortState = useSelector(state => state.sort.sortState)
     // Local State
     const [sortDropdown, toogleSortDropdown] = useState(false)
-    const [sortDescending, setSortDescending] = useState(true)
 
     // Toogle Sort Dropdown
     const handleToogleDropdown = e => {
@@ -17,7 +25,7 @@ export default function MainContentHeader() {
     // Select sort
     const handleSelectSort = (e, descending) => {
         e.stopPropagation()
-        setSortDescending(descending)
+        store.dispatch(toogleSortState(descending))
         toogleSortDropdown(false)
     }
 
@@ -30,7 +38,7 @@ export default function MainContentHeader() {
             <div className='sort'>
                 <div className='sort-button' onClick={handleToogleDropdown}>
                     <span>
-                        {`Title `} {sortDescending ? 'A-Z' : 'Z-A'}
+                        {`Title `} {sortState ? 'A-Z' : 'Z-A'}
                     </span>
                     <div className='arrow-container'>
                         {
@@ -57,13 +65,13 @@ export default function MainContentHeader() {
                     <div className='sort-dropdown'>
                         <div
                             id='first'
-                            className={sortDescending ? 'selected sort' : 'sort'}
+                            className={sortState ? 'selected sort' : 'sort'}
                             onClick={e => handleSelectSort(e, true)}
                         >
                             {`Title A-Z`}
                         </div>
                         <div
-                            className={!sortDescending ? 'selected sort' : 'sort'}
+                            className={!sortState ? 'selected sort' : 'sort'}
                             onClick={e => handleSelectSort(e, false)}
                         >
                             {`Title Z-A`}

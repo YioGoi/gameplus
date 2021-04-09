@@ -3,42 +3,36 @@ import React, { useEffect, useState } from 'react'
 // Styles
 import './Content.scss'
 
-// Dummy Data
-import { dummyData } from '../../data/dummyData'
+// Redux
+import { useSelector } from 'react-redux'
+
+
+// Helpers
+import initializeData from '../../helpers/initializeData'
 
 export default function Content() {
+    // Global Store
+    const sortState = useSelector(state => state.sort.sortState)
+    const mainData = useSelector(state => state.data.mainData)
     // Local State
     const [contentData, setContentData] = useState(null)
+
+    console.log(mainData)
 
     // First find titles first char to group game data
     useEffect(() => {
         // Simulate as this data'd come from DB
-        if (dummyData) {
-            let clone = Object.assign([], dummyData)
-
-            const obj = clone.reduce((acc, c) => {
-                const letter = c.title[0];
-                acc[letter] = (acc[letter] || []).concat(c);
-                return acc;
-            }, {})
-
-            // `map` over the object entries to return an array of objects
-            // In first render sort it as A-Z
-            clone = Object.entries(obj).map(([letter, data]) => {
-                return { letter, data }
-            }).sort((a, b) => a.letter > b.letter)
-
-            setContentData(clone)
+        if (mainData) {
+            let data = initializeData(mainData, sortState)
+            setContentData(data)
         }
-    }, [])
-
-    console.log(contentData)
+    }, [mainData, sortState])
 
     return (
         <div className='content-container'>
             {
                 contentData && contentData.map((item, index) => (
-                    <div className='content' key={index}>
+                    <div className='content' key={item.letter}>
                         <div className='polygon-letter'>
                             <img
                                 className='polygon'

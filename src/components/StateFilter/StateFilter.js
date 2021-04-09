@@ -1,9 +1,66 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 // Styles
 import './StateFilter.scss'
 
+// Redux
+import store from '../../redux/store'
+import {
+    storeMainData
+} from '../../redux'
+
+// Dummy Data
+import { dummyData } from '../../data/dummyData'
+
 export default function StateFilter() {
+    // Local State
+    const [patchingChecked, setPatchingChecked] = useState(false)
+    const [availableChecked, setAvailableChecked] = useState(false)
+    const [maintenanceChecked, setMaintenanceChecked] = useState(false)
+
+    useEffect(() => {
+        let newData = []
+        let filteredPatching = []
+        let filteredAvailable = []
+        let filteredMaintenance = []
+        
+        if(patchingChecked) {
+            filteredPatching =  dummyData.filter(data => data.status === 'PATCHING')
+        }
+
+        if(availableChecked) {
+            filteredAvailable =  dummyData.filter(data => data.status === 'AVAILABLE')
+        }
+
+        if(maintenanceChecked) {
+            filteredMaintenance =  dummyData.filter(data => data.status === 'MAINTENANCE')
+        }
+
+        newData = [...filteredAvailable, ...filteredMaintenance, ...filteredPatching]
+
+        // If no state filter checked show all data
+        if(!patchingChecked && !availableChecked && !maintenanceChecked) {
+            newData = [...dummyData]
+        } 
+        
+        store.dispatch(storeMainData(newData))
+    }, [patchingChecked, availableChecked, maintenanceChecked])
+
+    const handleAvailableChecked = e => {
+        e.stopPropagation()
+        setAvailableChecked(e.target.checked)
+    }
+
+    const handlePatchingChecked = e => {
+        e.stopPropagation()
+        setPatchingChecked(e.target.checked)
+    }
+
+    const handleMaintenanceChecked = e => {
+        e.stopPropagation()
+        setMaintenanceChecked(e.target.checked)
+    }
+
     return (
         <div className='state-filter-container'>
             <div className='state-filter-header'>
@@ -24,17 +81,17 @@ export default function StateFilter() {
 
             <div className='state-filter-check-boxes'>
                 <div className='check-box first'>
-                    <input type="checkbox" id="Available" name="Available" value="Available" />
+                    <input type="checkbox" id="Available" name="Available" value="Available" onChange={handleAvailableChecked} />
                     <label htmlFor="Available"> Available</label>
                 </div>
 
                 <div className='check-box'>
-                    <input type="checkbox" id="Patching" name="Patching" value="Patching" />
+                    <input type="checkbox" id="Patching" name="Patching" value="Patching" onChange={handlePatchingChecked} />
                     <label htmlFor="Patching"> Patching</label>
                 </div>
 
                 <div className='check-box'>
-                    <input type="checkbox" id="Maintenance" name="Maintenance" value="Maintenance" />
+                    <input type="checkbox" id="Maintenance" name="Maintenance" value="Maintenance" onChange={handleMaintenanceChecked} />
                     <label htmlFor="Maintenance"> Maintenance</label>
                 </div>
             </div>

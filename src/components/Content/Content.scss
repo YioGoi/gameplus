@@ -54,6 +54,10 @@
                 letter-spacing: normal;
                 color: $gray3;
                 cursor: pointer;
+
+                &:hover {
+                    color: $white;
+                }
             }
         }
     }

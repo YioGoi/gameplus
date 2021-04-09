@@ -2,15 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals'
+import { Provider } from "react-redux"
+import store from './redux/store'
 
 // Font
 import './fonts/greycliff.ttf'
 import './fonts/greycliff-light.ttf'
 
+// Global Store for global processes like sort, filter etc...
+const globalStore = { ...store }
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={globalStore}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
