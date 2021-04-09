@@ -64,10 +64,10 @@
             align-items: center;
             background-color: $gray1;
             padding: 16px 54px 16px 16px;
-            cursor: pointer;
             margin-top: 1px;
+            box-shadow: 0 4px 12px 0 #000000;
 
-            span {
+            .sort {
                 font-family: greycliff-cf-light;
                 font-size: 20px;
                 font-weight: 600;
@@ -76,10 +76,11 @@
                 line-height: normal;
                 letter-spacing: normal;
                 color: $gray3;
+                cursor: pointer;
             }
 
-            .under {
-                padding-top: 16px;
+            #first {
+                padding-bottom: 4px;
             }
 
             .selected {

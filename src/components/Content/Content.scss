@@ -16,6 +16,7 @@
             display        : flex;
             justify-content: flex-start;
             flex-direction : row;
+            margin-bottom: 14px;
 
             span {
                 position     : absolute;
@@ -42,6 +43,17 @@
             flex-wrap: wrap;
             .game {
                 flex: 1 50%;
+                padding-top: 16px;
+
+                font-family: greycliff-cf-light;
+                font-size: 16px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: $gray3;
+                cursor: pointer;
             }
         }
     }

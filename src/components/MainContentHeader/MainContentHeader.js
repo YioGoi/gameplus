@@ -6,7 +6,7 @@ import './MainContentHeader.scss'
 export default function MainContentHeader() {
     // Local State
     const [sortDropdown, toogleSortDropdown] = useState(false)
-    const [sortDescending, setSortDescending] = useState(false)
+    const [sortDescending, setSortDescending] = useState(true)
 
     // Toogle Sort Dropdown
     const handleToogleDropdown = e => {
@@ -26,6 +26,7 @@ export default function MainContentHeader() {
             <div className='text'>
                 {`Browse Games`}
             </div>
+
             <div className='sort'>
                 <div className='sort-button' onClick={handleToogleDropdown}>
                     <span>
@@ -54,18 +55,19 @@ export default function MainContentHeader() {
                 {
                     sortDropdown &&
                     <div className='sort-dropdown'>
-                        <span
-                            className={sortDescending ? 'selected' : ''}
+                        <div
+                            id='first'
+                            className={sortDescending ? 'selected sort' : 'sort'}
                             onClick={e => handleSelectSort(e, true)}
                         >
                             {`Title A-Z`}
-                        </span>
-                        <span
-                            className={!sortDescending ? 'selected under' : 'under'}
+                        </div>
+                        <div
+                            className={!sortDescending ? 'selected sort' : 'sort'}
                             onClick={e => handleSelectSort(e, false)}
                         >
                             {`Title Z-A`}
-                        </span>
+                        </div>
                     </div>
                 }
             </div>
