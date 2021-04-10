@@ -31,15 +31,17 @@ export default function Content() {
                 contentData && contentData.map((item, index) => (
                     <div className='content' key={item.letter}>
                         <div className='polygon-letter'>
-                            <img
-                                className='polygon'
-                                src={process.env.PUBLIC_URL + '/icons/polygon.png'}
-                                srcSet={`${process.env.PUBLIC_URL + '/icons/polygon@2x.png'} 2x, ${process.env.PUBLIC_URL + '/icons/polygon@3x.png'} 3x`}
-                                alt='polygon'
-                            />
-                            <span>
-                                {item.letter}
-                            </span>
+                            <div className='wrapper'>
+                                <img
+                                    className='polygon'
+                                    src={process.env.PUBLIC_URL + '/icons/polygon.png'}
+                                    srcSet={`${process.env.PUBLIC_URL + '/icons/polygon@2x.png'} 2x, ${process.env.PUBLIC_URL + '/icons/polygon@3x.png'} 3x`}
+                                    alt='polygon'
+                                />
+                                <div className='letter'>
+                                    {item.letter}
+                                </div>
+                            </div>
                         </div>
 
                         <div className='games'>
