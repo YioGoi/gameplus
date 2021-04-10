@@ -40,6 +40,7 @@ export default function Search() {
         e.stopPropagation()
         let selectedItem = dummyData.find(data => data.id === item.id)
         store.dispatch(storeMainData([selectedItem]))
+        setSearchValue(selectedItem.title)
         setSearchDropdown(false)
     }
 
