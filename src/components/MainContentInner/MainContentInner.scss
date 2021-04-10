@@ -3,6 +3,7 @@
 .main-content-inner {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding: 23px 0;
 
     .filter {
