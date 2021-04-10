@@ -1,34 +1,71 @@
 @import '../../styles/colors';
 
 .search-container {
-    display         : flex;
-    flex-direction  : row;
-    align-items     : center;
-    margin-top      : 24px;
-    width           : 793px;
-    height          : 56px;
-    background-color: $white;
+    .search-and-icons {
+        display         : flex;
+        flex-direction  : row;
+        align-items     : center;
+        margin-top      : 24px;
+        width           : 793px;
+        height          : 56px;
+        background-color: $white;
 
-    .icon {
-        padding-left: 17px;
+        .icon {
+            padding-left: 17px;
+        }
+
+        .input-container {
+            padding-left: 17px;
+
+            #input {
+                width    : 634px;
+                border   : unset;
+                font-size: 20px;
+
+                &::placeholder {
+                    color: $gray2;
+                }
+
+                &:focus {
+                    border : unset;
+                    outline: unset;
+                }
+            }
+        }
+
+        .clear-icon {
+            display        : flex;
+            justify-content: flex-end;
+            width          : 100%;
+            padding-right: 24px;
+            cursor:pointer;
+        }
     }
 
-    .input-container {
-        padding-left: 17px;
+    .search-dropdown {
+        position        : absolute;
+        display         : flex;
+        flex-direction  : column;
+        align-items     : flex-start;
+        background-color: $white;
+        margin-top      : 1px;
+        z-index         : 1;
+        width           : 632px;
+        padding         : 10px 103.1px 20px 57.9px;
 
-        #input {
-            width    : 634px;
-            border   : unset;
-            font-size: 20px;
-
-            &::placeholder {
-                color: $gray2;
-            }
-
-            &:focus {
-                border : unset;
-                outline: unset;
-            }
+        .search-item {
+            display       : flex;
+            align-items   : center;
+            height        : 36px;
+            font-family   : greycliff-cf-light;
+            font-size     : 20px;
+            font-weight   : normal;
+            font-stretch  : normal;
+            font-style    : normal;
+            line-height   : normal;
+            letter-spacing: normal;
+            color         : $gray1;
+            cursor        : pointer;
         }
     }
 }
