@@ -11,7 +11,7 @@ export default function Banner() {
         <div className='banner-container'>
             <div className='banner'>
                 <div className='title'>
-                    {`Find the game you want. Start to play wherever you like !`}
+                    {`Find the game you want, start to play wherever you like`}
                 </div>
 
                 <div className='description'>
