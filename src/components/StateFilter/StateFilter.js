@@ -6,7 +6,8 @@ import './StateFilter.scss'
 // Redux
 import store from '../../redux/store'
 import {
-    storeMainData
+    storeMainData,
+    setSearchValue
 } from '../../redux'
 
 // Dummy Data
@@ -49,17 +50,23 @@ export default function StateFilter() {
 
     const handleAvailableChecked = e => {
         e.stopPropagation()
-        setAvailableChecked(e.target.checked)
+        let checked = e.target.checked
+        setAvailableChecked(checked)
+        store.dispatch(setSearchValue(''))
     }
 
     const handlePatchingChecked = e => {
         e.stopPropagation()
-        setPatchingChecked(e.target.checked)
+        let checked = e.target.checked
+        setPatchingChecked(checked)
+        store.dispatch(setSearchValue(''))
     }
 
     const handleMaintenanceChecked = e => {
         e.stopPropagation()
-        setMaintenanceChecked(e.target.checked)
+        let checked = e.target.checked
+        setMaintenanceChecked(checked)
+        store.dispatch(setSearchValue(''))
     }
 
     const handleCollapse = e => {

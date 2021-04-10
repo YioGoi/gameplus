@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux'
 import store from '../../redux/store'
 import {
     setCheckedGenres,
-    storeMainData
+    storeMainData,
+    setSearchValue
 } from '../../redux'
 
 // Dummy Data
@@ -74,6 +75,8 @@ export default function GenreFilter() {
 
     // Match checked genres and set data
     useEffect(() => {
+        // Clear search for new filtered data
+        store.dispatch(setSearchValue(''))
         if (checkedGenresArray.length > 0) {
             let newData = []
             dummyData.forEach(data => {

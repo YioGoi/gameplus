@@ -4,24 +4,27 @@ import React, { useState } from 'react'
 import './Search.scss'
 
 // Redux
+import { useSelector } from 'react-redux'
 import store from '../../redux/store'
 import {
-    storeMainData
+    storeMainData,
+    setSearchValue
 } from '../../redux'
 
 // Dummy Data
 import { dummyData } from '../../data/dummyData'
 
 export default function Search() {
+    // Global State
+    const searchValue = useSelector(state => state.data.searchValue)
     // Local State
     const [searchDropdown, setSearchDropdown] = useState(false)
     const [localDataList, setLocalDataList] = useState(null)
-    const [searchValue, setSearchValue] = useState('')
 
     const handleSearchChange = e => {
         e.stopPropagation()
         let value = e.target.value
-        setSearchValue(value)
+        store.dispatch(setSearchValue(value))
         if (value !== '') {
             const filtered = dummyData.filter(data => data.title.toLowerCase().startsWith(value.toLowerCase()))
             setLocalDataList(filtered)
@@ -40,14 +43,15 @@ export default function Search() {
         e.stopPropagation()
         let selectedItem = dummyData.find(data => data.id === item.id)
         store.dispatch(storeMainData([selectedItem]))
-        setSearchValue(selectedItem.title)
+        store.dispatch(setSearchValue(selectedItem.title))
         setSearchDropdown(false)
     }
 
     const handleClear = e => {
         e.stopPropagation()
-        setSearchValue('')
+        store.dispatch(setSearchValue(''))
         store.dispatch(storeMainData(dummyData))
+        setSearchDropdown(false)
     }
 
     return (

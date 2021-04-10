@@ -1,1 +1,2 @@
 export const STORE_MAIN_DATA = 'STORE_MAIN_DATA'
+export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE'

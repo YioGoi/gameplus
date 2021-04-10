@@ -1,9 +1,11 @@
 import {
-  STORE_MAIN_DATA
+  STORE_MAIN_DATA,
+  SET_SEARCH_VALUE
 } from "./dataActionTypes"
 
 const initialState = {
-  mainData: null
+  mainData: null,
+  searchValue: ''
 }
 
 // News Reducer
@@ -14,6 +16,12 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         mainData: action.payload
+      }
+
+    case SET_SEARCH_VALUE:
+      return {
+        ...state,
+        searchValue: action.payload
       }
 
     default:

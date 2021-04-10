@@ -3,7 +3,8 @@ export {
 } from './sort/sortActions'
 
 export {
-    storeMainData
+    storeMainData,
+    setSearchValue
 } from './data/dataActions'
 
 export {
