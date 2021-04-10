@@ -64,14 +64,13 @@ export default function MainContentHeader() {
                     sortDropdown &&
                     <div className='sort-dropdown'>
                         <div
-                            id='first'
                             className={sortState ? 'selected sort' : 'sort'}
                             onClick={e => handleSelectSort(e, true)}
                         >
                             {`Title A-Z`}
                         </div>
                         <div
-                            className={!sortState ? 'selected sort' : 'sort'}
+                            className={!sortState ? 'selected sort bottom' : 'sort bottom'}
                             onClick={e => handleSelectSort(e, false)}
                         >
                             {`Title Z-A`}

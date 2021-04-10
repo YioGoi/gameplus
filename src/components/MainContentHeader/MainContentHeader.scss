@@ -66,6 +66,7 @@
             padding: 16px 54px 16px 16px;
             margin-top: 1px;
             box-shadow: 0 4px 12px 0 #000000;
+            z-index: 1;
 
             .sort {
                 font-family: greycliff-cf-light;
@@ -79,12 +80,12 @@
                 cursor: pointer;
             }
 
-            #first {
-                padding-bottom: 4px;
-            }
-
             .selected {
                 color: $white;
+            }
+
+            .bottom {
+                padding-top: 16px;
             }
         }
     }
