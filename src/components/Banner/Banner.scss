@@ -39,39 +39,6 @@
             color         : $white;
             padding-top   : 15px;
         }
-
-        .search-container {
-            display       : flex;
-            flex-direction: row;
-            align-items: center;
-            margin-top   : 24px;
-            width: 793px;
-            height: 56px;
-            background-color: $white;
-
-            .icon {
-                padding-left: 17px;
-            }
-
-            .input-container {
-                padding-left: 17px;
-
-                #input {
-                    width: 634px;
-                    border: unset;
-                    font-size: 20px;
-                    
-                    &::placeholder {
-                        color: $gray2;
-                    }
-
-                    &:focus {
-                        border: unset;
-                        outline: unset;
-                    }
-                }
-            }
-        }
     }
 
 }
