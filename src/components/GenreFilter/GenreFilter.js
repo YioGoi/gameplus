@@ -15,6 +15,7 @@ import {
 // Dummy Data
 import { dummyData } from '../../data/dummyData'
 
+// All genre filters
 const filtersArray = [
     {
         text: 'Shooters'

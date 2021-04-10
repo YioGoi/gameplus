@@ -21,6 +21,7 @@ export default function Search() {
     const [searchDropdown, setSearchDropdown] = useState(false)
     const [localDataList, setLocalDataList] = useState(null)
 
+    // Find games start with the letters searched
     const handleSearchChange = e => {
         e.stopPropagation()
         let value = e.target.value
@@ -39,6 +40,7 @@ export default function Search() {
         }
     }
 
+    // Click and view the searched game
     const handleSearchItemClick = (e, item) => {
         e.stopPropagation()
         let selectedItem = dummyData.find(data => data.id === item.id)
@@ -47,6 +49,7 @@ export default function Search() {
         setSearchDropdown(false)
     }
 
+    // Clear search
     const handleClear = e => {
         e.stopPropagation()
         store.dispatch(setSearchValue(''))

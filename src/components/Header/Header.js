@@ -3,26 +3,27 @@ import React from 'react'
 // Styles
 import './Header.scss'
 
+const menuArray = [
+    {
+        text: 'Games',
+        default: true
+    },
+    {
+        text: 'Membership'
+    },
+    {
+        text: 'Download'
+    },
+    {
+        text: 'Blog'
+    },
+    {
+        text: 'Support'
+    }
+]
+
 export default function Header() {
 
-    const menuArray = [
-        {
-            text: 'Games',
-            default: true
-        },
-        {
-            text: 'Membership'
-        },
-        {
-            text: 'Download'
-        },
-        {
-            text: 'Blog'
-        },
-        {
-            text: 'Support'
-        }
-    ]
     return (
         <div className='header'>
             <div className='logo-container'>

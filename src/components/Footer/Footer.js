@@ -3,32 +3,32 @@ import React from 'react'
 // Styles
 import './Footer.scss'
 
-export default function Footer() {
+// Dummy Sitemap
+const sitemapArray = [
+    {
+        text: 'Games'
+    },
+    {
+        text: 'Contact Us'
+    },
+    {
+        text: 'FAQs'
+    },
+    {
+        text: 'Memberships'
+    },
+    {
+        text: 'Blog'
+    },
+    {
+        text: 'Service Status'
+    },
+    {
+        text: 'Download'
+    }
+]
 
-    // Dummy Sitemap
-    const sitemapArray = [
-        {
-            text: 'Games'
-        },
-        {
-            text: 'Contact Us'
-        },
-        {
-            text: 'FAQs'
-        },
-        {
-            text: 'Memberships'
-        },
-        {
-            text: 'Blog'
-        },
-        {
-            text: 'Service Status'
-        },
-        {
-            text: 'Download'
-        }
-    ]
+export default function Footer() {
 
     return (
         <div className='footer-container'>

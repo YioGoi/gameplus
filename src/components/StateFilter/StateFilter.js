@@ -20,6 +20,7 @@ export default function StateFilter() {
     const [maintenanceChecked, setMaintenanceChecked] = useState(false)
     const [stateFilterMenuVisible, setStateFilterMenuVisible] = useState(true)
 
+    // Look for checked states and dispatch data
     useEffect(() => {
         let newData = []
         let filteredPatching = []
@@ -52,6 +53,7 @@ export default function StateFilter() {
         e.stopPropagation()
         let checked = e.target.checked
         setAvailableChecked(checked)
+        // Clear Search for new browsing data
         store.dispatch(setSearchValue(''))
     }
 
@@ -59,6 +61,7 @@ export default function StateFilter() {
         e.stopPropagation()
         let checked = e.target.checked
         setPatchingChecked(checked)
+        // Clear Search for new browsing data
         store.dispatch(setSearchValue(''))
     }
 
@@ -66,6 +69,7 @@ export default function StateFilter() {
         e.stopPropagation()
         let checked = e.target.checked
         setMaintenanceChecked(checked)
+        // Clear Search for new browsing data
         store.dispatch(setSearchValue(''))
     }
 

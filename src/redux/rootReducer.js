@@ -1,7 +1,7 @@
 /*
-  Author: Musa Arda 10-11-2019
+  Author: Yiğit Doğan 10.04.2021
   ---------------
-  Assumes: main (and only) Reducer for Deskop App
+  Assumes: main Reducer for the App
   ---------------
   Returns: rootReducer with combineReducers combining all reducers.
 */

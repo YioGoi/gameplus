@@ -28,7 +28,7 @@ export default function Content() {
     return (
         <div className='content-container'>
             {
-                contentData && contentData.map((item, index) => (
+                contentData && contentData.map((item) => (
                     <div className='content' key={item.letter}>
                         <div className='polygon-letter'>
                             <div className='wrapper'>

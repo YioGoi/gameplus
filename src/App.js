@@ -1,6 +1,6 @@
 import './App.scss'
 
-// Components
+// Main Components
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
 import MainContent from './components/MainContent/MainContent'
