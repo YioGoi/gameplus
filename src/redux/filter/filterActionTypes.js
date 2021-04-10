@@ -1,0 +1,1 @@
+export const SET_CHECKED_GENRES = 'SET_CHECKED_GENRES'

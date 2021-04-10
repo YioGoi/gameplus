@@ -1,7 +1,11 @@
 export {
-    toogleSortState,
+    toogleSortState
 } from './sort/sortActions'
 
 export {
-    storeMainData,
+    storeMainData
 } from './data/dataActions'
+
+export {
+    setCheckedGenres
+} from './filter/filterActions'

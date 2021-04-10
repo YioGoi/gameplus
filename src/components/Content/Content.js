@@ -6,7 +6,6 @@ import './Content.scss'
 // Redux
 import { useSelector } from 'react-redux'
 
-
 // Helpers
 import initializeData from '../../helpers/initializeData'
 
@@ -17,11 +16,9 @@ export default function Content() {
     // Local State
     const [contentData, setContentData] = useState(null)
 
-    console.log(mainData)
-
     // First find titles first char to group game data
     useEffect(() => {
-        // Simulate as this data'd come from DB
+        // map the data which can be filtered or searched
         if (mainData) {
             let data = initializeData(mainData, sortState)
             setContentData(data)

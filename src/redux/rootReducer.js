@@ -9,11 +9,13 @@
 import { combineReducers } from 'redux'
 import sortReducer from './sort/sortReducer'
 import dataReducer from './data/dataReducer'
+import filterReducer from './filter/filterReducer'
 
 
 const rootReducer = combineReducers(
   {
     data: dataReducer,
+    filter: filterReducer,
     sort: sortReducer,
   }
 )
