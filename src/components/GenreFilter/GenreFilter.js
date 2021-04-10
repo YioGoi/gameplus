@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Styles
 import './GenreFilter.scss'
@@ -6,7 +6,7 @@ import './GenreFilter.scss'
 // Redux
 import { useSelector } from 'react-redux'
 import store from '../../redux/store'
-import { 
+import {
     setCheckedGenres,
     storeMainData
 } from '../../redux'
@@ -69,14 +69,17 @@ export default function GenreFilter() {
     // Global State
     const checkedGenresArray = useSelector(state => state.filter.checkedGenresArray)
 
+    // Local State
+    const [genreFilterMenuVisible, setGenreFilterMenuVisible] = useState(true)
+
     // Match checked genres and set data
     useEffect(() => {
-        if(checkedGenresArray.length > 0) {
+        if (checkedGenresArray.length > 0) {
             let newData = []
             dummyData.forEach(data => {
                 checkedGenresArray.forEach(checked => {
                     let isMatched = data.genres.some(genre => genre === checked)
-                    if(isMatched) {
+                    if (isMatched) {
                         newData.push(data)
                     }
                 })
@@ -87,7 +90,7 @@ export default function GenreFilter() {
             store.dispatch(storeMainData(dummyData))
         }
     }, [checkedGenresArray])
-    
+
 
     const handleOnChange = e => {
         e.stopPropagation()
@@ -98,6 +101,11 @@ export default function GenreFilter() {
         store.dispatch(setCheckedGenres(obj))
     }
 
+    const handleCollapse = e => {
+        e.stopPropagation()
+        setGenreFilterMenuVisible(visible => !visible)
+    }
+
     return (
         <div className='genre-filter-container'>
             <div className='genre-filter-header'>
@@ -106,26 +114,40 @@ export default function GenreFilter() {
                         {`Genre Filters`}
                     </span>
                 </div>
-                <div className='genre-filter-icon'>
-                    <img
-                        className='arrow-up'
-                        src={process.env.PUBLIC_URL + '/icons/icons-arrow-up.png'}
-                        srcSet={`${process.env.PUBLIC_URL + '/icons/icons-arrow-up@2x.png'} 2x, ${process.env.PUBLIC_URL + '/icons/icons-arrow-up@3x.png'} 3x`}
-                        alt='arrow-up'
-                    />
+                <div className='genre-filter-icon' onClick={handleCollapse}>
+                    {
+                        genreFilterMenuVisible ?
+                            <img
+                                className='arrow-up'
+                                src={process.env.PUBLIC_URL + '/icons/icons-arrow-up.png'}
+                                srcSet={`${process.env.PUBLIC_URL + '/icons/icons-arrow-up@2x.png'} 2x, ${process.env.PUBLIC_URL + '/icons/icons-arrow-up@3x.png'} 3x`}
+                                alt='arrow-up'
+                            />
+                            :
+                            <img
+                                className='arrow-down'
+                                src={process.env.PUBLIC_URL + '/icons/icon-mask.png'} // This image size is not same with the arrow up and causing css problems
+                                srcSet={`${process.env.PUBLIC_URL + '/icons/icon-mask@2x.png'} 2x, ${process.env.PUBLIC_URL + '/icons/icon-mask@3x.png'} 3x`}
+                                alt='arrow-down'
+                            />
+                    }
                 </div>
             </div>
 
-            <div className='genre-filter-check-boxes'>
-                {
-                    filtersArray.map((filter, index) => (
-                        <div className={index === 0 ? 'check-box first' : 'check-box'} key={index}>
-                            <input type="checkbox" id={filter.text} name={filter.text} value={filter.text} onChange={handleOnChange} />
-                            <label htmlFor={filter.text}> {filter.text}</label>
-                        </div>
-                    ))
-                }
-            </div>
+            {
+                genreFilterMenuVisible &&
+                <div className='genre-filter-check-boxes'>
+                    {
+                        filtersArray.map((filter, index) => (
+                            <div className={index === 0 ? 'check-box first' : 'check-box'} key={index}>
+                                <input type="checkbox" id={filter.text} name={filter.text} value={filter.text} onChange={handleOnChange} />
+                                <label htmlFor={filter.text}> {filter.text}</label>
+                            </div>
+                        ))
+                    }
+                </div>
+            }
+
         </div>
     )
 }

@@ -45,7 +45,7 @@ export default function MainContentHeader() {
                             !sortDropdown ?
                                 <img
                                     className='arrow-down'
-                                    src={process.env.PUBLIC_URL + '/icons/icon-mask.png'}
+                                    src={process.env.PUBLIC_URL + '/icons/icon-mask.png'} // This image size is not same with the arrow up and causing css problems
                                     srcSet={`${process.env.PUBLIC_URL + '/icons/icon-mask@2x.png'} 2x, ${process.env.PUBLIC_URL + '/icons/icon-mask@3x.png'} 3x`}
                                     alt='arrow-down'
                                 />
